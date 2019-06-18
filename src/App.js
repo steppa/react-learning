@@ -1,8 +1,11 @@
 import React from 'react';
 import './App.css';
+import Header from './components/Header';
 import * as ReactDOM from "react-dom";
 
 // Created as a class because we need to use the state.
+
+
 
 class GuardianArticleList extends React.Component {
   constructor(props) {
@@ -25,34 +28,18 @@ class GuardianArticleList extends React.Component {
 
   handleSubmit(event){
 
-
-    console.log("API call here");
   }
-  componentDidMount() {
-    fetch("https://content.guardianapis.com/search?q=environment&from-date=2019-01-01&api-key=cb03ed79-27c2-417b-859e-08a5a3bd3285")
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            articles: result.response.results
-          });
-        },
-        // Handle errors don't catch!
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
-      )
+   componentDidUpdate() {
+     console.log("update");
   }
 
 
   render()
     {
       return (
+
         <div id='guardianArticleList'>
+          <Header/>
           <h1>Article List</h1>
           <SearchBar
           searchText = {this.state.searchText}
@@ -75,9 +62,36 @@ class SearchBar extends React.Component {
     this.props.onSearchTextChange(event.target.value);
   }
 
+  callApi(){
+    //TODO: @shousden Change to Axios as that appears to be popular and more simple.
+    fetch("https://content.guardianapis.com/search?q="+this.props.searchText+"&from-date=2019-01-01&api-key=bf18382d-5a0b-44cc-9713-4dd5a9d082b4")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          console.log("State setting");
+
+          this.setState({
+            isLoaded: true,
+            articles: result.response.results
+          });
+          console.dir(this.state);
+        },
+        // Handle errors don't catch!
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      )
+  }
+
   handleSubmit(event) {
-    alert('A name was submitted: ' + this.props.searchText);
     event.preventDefault();
+    this.setState({searchText: this.props.searchText});
+    this.callApi();
+
+
   }
  render(){
    const searchText = this.props.searchText;
@@ -94,12 +108,16 @@ class ArticleList extends React.Component {
   constructor(props){
     super(props);
   }
+  componentWillUpdate(nextProps, nextState, nextContext) {
+    console.log("this update");
+  }
+
   render(){
     const items = this.props.articles;
     return(
       <ul>
         {items.map(item => (
-          <li key={item.sectionName}>
+          <li key={item.webUrl}>
             <a href={item.webUrl}>{item.webTitle}</a>
           </li>
         ))}
