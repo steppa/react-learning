@@ -1,20 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import * as ReactDOM from "react-dom";
 
 // Created as a class because we need to use the state.
-class GuardianComponent extends React.Component {
+
+class GuardianArticleList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      searchText: '',
       error: null,
       isLoaded: false,
-      items: []
+      articles: []
     };
+    this.handleSearchTextChange = this.handleSearchTextChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  //Used inbuilt 'fetch' for speed
+  handleSearchTextChange(searchText) {
+    this.setState({
+      searchText: searchText
+    });
+  }
+
+  handleSubmit(event){
+
+
+    console.log("API call here");
+  }
   componentDidMount() {
     fetch("https://content.guardianapis.com/search?q=environment&from-date=2019-01-01&api-key=cb03ed79-27c2-417b-859e-08a5a3bd3285")
       .then(res => res.json())
@@ -22,7 +35,7 @@ class GuardianComponent extends React.Component {
         (result) => {
           this.setState({
             isLoaded: true,
-            items: result.response.results
+            articles: result.response.results
           });
         },
         // Handle errors don't catch!
@@ -35,41 +48,66 @@ class GuardianComponent extends React.Component {
       )
   }
 
-  render() {
-    const { error, isLoaded, items } = this.state;
-    if (error) {
-      return <div>Error: {error.message}</div>;
-    } else if (!isLoaded) {
-      return <div>Loading...</div>;
-    } else {
+
+  render()
+    {
       return (
-        <ul>
-          {items.map(item => (
-            <li key={item.sectionName}>
-              <a href={item.webUrl}>{item.webTitle}</a>
-            </li>
-          ))}
-        </ul>
+        <div id='guardianArticleList'>
+          <h1>Article List</h1>
+          <SearchBar
+          searchText = {this.state.searchText}
+          onSearchTextChange={this.handleSearchTextChange}
+          onSubmit={this.handleSubmit}/>
+          <ArticleList articles={this.state.articles}/>
+        </div>
       );
     }
-  }
+
 }
 
-class SearchForm extends React.Component{
-  constructor(props) {
+class SearchBar extends React.Component {
+  constructor(props){
     super(props);
-    this.state = {value: ''};
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSearchBarChange = this.handleSearchBarChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+  handleSearchBarChange(event) {
+    this.props.onSearchTextChange(event.target.value);
+  }
 
-  }
-  handleChange(event) {
-    this.setState({value: event.target.value});
-  }
   handleSubmit(event) {
-    alert('Your search term was: ' + this.state.value);
+    alert('A name was submitted: ' + this.props.searchText);
     event.preventDefault();
   }
+ render(){
+   const searchText = this.props.searchText;
+   return(
+     <form onSubmit={this.handleSubmit}>
+   <input type="text" value={this.props.searchText} onChange={this.handleSearchBarChange}/>
+   <input type="submit" value="Submit"/>
+     </form>
+   );
+ }
 }
 
-export default GuardianComponent;
+class ArticleList extends React.Component {
+  constructor(props){
+    super(props);
+  }
+  render(){
+    const items = this.props.articles;
+    return(
+      <ul>
+        {items.map(item => (
+          <li key={item.sectionName}>
+            <a href={item.webUrl}>{item.webTitle}</a>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+}
+
+export default GuardianArticleList;
+
+
