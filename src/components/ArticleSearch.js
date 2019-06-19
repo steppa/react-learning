@@ -65,8 +65,8 @@ class ArticleSearch extends React.Component {
     return (
 
       <div id='guardianArticleList'>
-
-        <Header/>
+        <h2>Search the Guardian</h2>
+        <p>Use this form to search all Guardian and Observer articles produced in 2019</p>
         <form onSubmit={this.handleSubmit}>
           <div id='searchbar'>
             <Input type={'text'}
