@@ -1,11 +1,12 @@
 import React from 'react';
 import './App.css';
+import './components/UI/Spinner/Spinner.css';
 import Header from './components/Header';
-import * as ReactDOM from "react-dom";
+import ArticleList from './components/ArticleList';
+import Input from "./components/UI/Input";
+import Spinner from "./components/UI/Spinner/Spinner";
 
 // Created as a class because we need to use the state.
-
-
 
 class GuardianArticleList extends React.Component {
   constructor(props) {
@@ -14,116 +15,83 @@ class GuardianArticleList extends React.Component {
       searchText: '',
       error: null,
       isLoaded: false,
-      articles: []
+      articles: [],
+      isLoading: false
     };
     this.handleSearchTextChange = this.handleSearchTextChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSearchTextChange(searchText) {
-    this.setState({
-      searchText: searchText
-    });
-  }
+  handleSearchTextChange(e, props) {
 
-  handleSubmit(event){
+    this.setState({searchText: e.target.value});
 
   }
-   componentDidUpdate() {
-     console.log("update");
+
+  handleSubmit(e){
+    //this.setState({searchText: this.props.searchText});
+    e.preventDefault();
+    this.callApi();
   }
 
+  componentDidMount(){
+   // this.callApi()
+  }
+
+
+
+  callApi() {
+      this.setState({isLoading: true});
+      //TODO: @shousden Change to Axios as that appears to be popular and more simple.
+      fetch("https://content.guardianapis.com/search?q="+this.state.searchText+"&from-date=2019-01-01&api-key=bf18382d-5a0b-44cc-9713-4dd5a9d082b4")
+        .then(res => res.json())
+        .then(
+          (result) => {
+            this.setState({
+              isLoaded: true,
+              articles: result.response.results
+            });
+
+          },
+          // Handle errors don't catch!
+          (error) => {
+            this.setState({
+              isLoaded: true,
+              error
+            });
+          }
+        )
+
+  }
 
   render()
     {
       return (
 
         <div id='guardianArticleList'>
+
           <Header/>
-          <h1>Article List</h1>
-          <SearchBar
-          searchText = {this.state.searchText}
-          onSearchTextChange={this.handleSearchTextChange}
-          onSubmit={this.handleSubmit}/>
+          <form onSubmit={this.handleSubmit}>
+            <div id='searchbar'>
+              <Input type={'text'}
+                     title= {'Search for Articles'}
+                     name= {'search'}
+                     value={this.state.searchText}
+                     placeholder = {'Enter a search'}
+                     handleChange = {this.handleSearchTextChange}
+              />
+              <Input type={'submit'}
+                     value="Submit"
+              />
+            </div>
+          </form>
           <ArticleList articles={this.state.articles}/>
+
         </div>
+
       );
     }
 
-}
-
-class SearchBar extends React.Component {
-  constructor(props){
-    super(props);
-    this.handleSearchBarChange = this.handleSearchBarChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this)
-  }
-  handleSearchBarChange(event) {
-    this.props.onSearchTextChange(event.target.value);
-  }
-
-  callApi(){
-    //TODO: @shousden Change to Axios as that appears to be popular and more simple.
-    fetch("https://content.guardianapis.com/search?q="+this.props.searchText+"&from-date=2019-01-01&api-key=bf18382d-5a0b-44cc-9713-4dd5a9d082b4")
-      .then(res => res.json())
-      .then(
-        (result) => {
-          console.log("State setting");
-
-          this.setState({
-            isLoaded: true,
-            articles: result.response.results
-          });
-          console.dir(this.state);
-        },
-        // Handle errors don't catch!
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
-      )
-  }
-
-  handleSubmit(event) {
-    event.preventDefault();
-    this.setState({searchText: this.props.searchText});
-    this.callApi();
-
-
-  }
- render(){
-   const searchText = this.props.searchText;
-   return(
-     <form onSubmit={this.handleSubmit}>
-   <input type="text" value={this.props.searchText} onChange={this.handleSearchBarChange}/>
-   <input type="submit" value="Submit"/>
-     </form>
-   );
- }
-}
-
-class ArticleList extends React.Component {
-  constructor(props){
-    super(props);
-  }
-  componentWillUpdate(nextProps, nextState, nextContext) {
-    console.log("this update");
-  }
-
-  render(){
-    const items = this.props.articles;
-    return(
-      <ul>
-        {items.map(item => (
-          <li key={item.webUrl}>
-            <a href={item.webUrl}>{item.webTitle}</a>
-          </li>
-        ))}
-      </ul>
-    )
-  }
 }
 
 export default GuardianArticleList;
