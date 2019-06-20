@@ -23,9 +23,9 @@ class Main extends React.Component {
         <HashRouter>
           <ul className="headMenu">
             <li><NavLink to="/">Home</NavLink></li>
-            <li><NavLink to="GuardianSearch">Guardian Article Search</NavLink></li>
+            <li><NavLink to="GuardianSearch">Search</NavLink></li>
           </ul>
-          <div className="content">
+          <div className="content" id="contentContainer">
             <Route exact path="/" component={Home}/>
             <Route path="/GuardianSearch" component={ArticleSearch}/>
           </div>

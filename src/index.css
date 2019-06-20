@@ -12,3 +12,77 @@ code {
     monospace;
 }
 
+#main{
+  height:100vh;
+}
+
+#main {
+  margin-bottom: 100px;
+}
+
+footer {
+  text-align: center;
+  position:fixed;
+  left:0;
+  bottom: 0;
+  height: 50px;
+  width:100%;
+  background-color: darkorange;
+}
+
+.headMenu {
+  list-style: none;
+  display: table;
+
+}
+
+.headMenu li {
+  display: table-cell;
+  width: 20%;
+  padding: 10px;
+  vertical-align: middle;
+  background-color: orangered;
+  border:1px white solid;
+  color:white;
+  font-weight:bold;
+  font-size: .9em;
+  text-align: center;
+}
+
+.headMenu li a{
+
+  text-decoration: none;
+
+}
+
+.headMenu li a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+
+
+#contentContainer {
+
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+input {
+  margin-left:5px;
+}
+
+#searchbar .form-group {
+  display: inline-block;
+}
+
+#contentContainer {
+  position: fixed;
+  width: 80%;
+  left: 10%;
+}

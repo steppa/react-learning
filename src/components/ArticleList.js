@@ -1,10 +1,6 @@
 import React from 'react';
 
 class ArticleList extends React.Component {
-  constructor(props){
-    super(props);
-  }
-
 
   render(){
     const items = this.props.articles;

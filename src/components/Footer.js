@@ -4,7 +4,7 @@ class Footer extends React.Component{
   render(){
     return(
       <footer>
-        <p> Copyright Step Dev 2019 </p>
+        <p>&#169; Copyright Step Dev 2019 </p>
       </footer>
     )
   }

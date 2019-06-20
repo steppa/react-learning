@@ -70,7 +70,7 @@ class ArticleSearch extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <div id='searchbar'>
             <Input type={'text'}
-                   title= {'Search for Articles'}
+                   title= {'Search for Articles: '}
                    name= {'search'}
                    value={this.state.searchText}
                    placeholder = {'Enter a search'}
