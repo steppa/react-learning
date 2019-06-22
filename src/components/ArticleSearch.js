@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import Header from './Header';
 import ArticleList from './ArticleList';
 import Input from "./UI/Input";
@@ -68,7 +68,7 @@ class ArticleSearch extends React.Component {
         <h2>Search the Guardian</h2>
         <p>Use this form to search all Guardian and Observer articles produced in 2019</p>
         <form onSubmit={this.handleSubmit}>
-          <div id='searchbar'>
+          <Fragment id='searchbar'>
             <Input type={'text'}
                    title= {'Search for Articles: '}
                    name= {'search'}
@@ -79,7 +79,7 @@ class ArticleSearch extends React.Component {
             <Input type={'submit'}
                    value="Submit"
             />
-          </div>
+          </Fragment>
         </form>
         <ArticleList articles={this.state.articles}/>
       </div>
