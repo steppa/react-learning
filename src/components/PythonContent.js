@@ -6,7 +6,7 @@ class PythonContent extends React.Component {
       <Fragment>
 
         <div className="row">
-          <section id="right" className="col-sm-12">
+          <article id="CodingContent" className="col-sm-12">
             <header>Example code for exercise</header>
             <pre>
               <a className="block1" data-toggle="collapse" href="#blockOneText" role="button"
@@ -14,7 +14,8 @@ class PythonContent extends React.Component {
               <span className="lineOfCode">import turtle</span>
               </a>
               <div id="blockOneText" className="collapse border-info ">
-                description of code block here.
+                <p><a className="inner-link" href="http://www.codeitmakeit.co.uk/dictionary/#import">Import</a> has to be at the top of your code or it won't work properly.  </p>
+                <p>turtle is a drawing library. You write simple instructions to create line drawings.</p>
               </div>
 
                 <a className="block2" data-toggle="collapse" href="#blockTwoText" roles="button" aria-expanded="false"
@@ -56,7 +57,7 @@ class PythonContent extends React.Component {
               <span  className="lineOfCode"></span>
               <span className="lineOfCode">tileRow()</span>
            </pre>
-          </section>
+          </article>
         </div>
 
       </Fragment>

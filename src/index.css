@@ -5,16 +5,15 @@
 
  footer {margin-bottom: 0;}
 
-
- pre {
+ #CodingContent pre {
      counter-reset:line;
  }
 
-pre span {
+ #CodingContent pre span {
     display: block;
 }
 
-span.lineOfCode::before {
+ #CodingContent span.lineOfCode::before {
     width: 2.5em;
     counter-increment: line;
     content: counter(line);
@@ -26,16 +25,20 @@ span.lineOfCode::before {
     align: right;
 }
 
-pre a {
+ #CodingContent a {
     display: block;
 }
 
-.block1{
-    border: 1px solid #d39e00;
-    background-color: #ffeeba;
+ #CodingContent a.inner-link {
+    display: inline;
 }
 
-.block2 {
+ #CodingContent .block1{
+    border: 1px solid #d39e00;
+    background-color: #ffeeba
+}
+
+ #CodingContent .block2 {
     border: 1px solid #0056b3;
     background-color: #b3d7ff;
 }
