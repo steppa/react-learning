@@ -1,38 +1,35 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import './App.css';
-import Header from './components/Header';
 import ArticleSearch from './components/ArticleSearch';
 import Footer from './components/Footer';
 import Home from "./components/Home";
-import {
-  Route,
-  NavLink,
-  HashRouter
-}
-from "react-router-dom";
-
-
-
-// Created as a class because we need to use the state.
+import Header from "./components/Header"
+import NavBar from  "./components/NavBar";
+import {Route, HashRouter } from "react-router-dom";
+import PythonContent from "./components/PythonContent";
 
 class Main extends React.Component {
   render() {
     return(
-      <div id='main'>
-        <Header/>
-        <HashRouter>
-          <ul className="headMenu">
-            <li><NavLink to="/">Home</NavLink></li>
-            <li><NavLink to="GuardianSearch">Search</NavLink></li>
-          </ul>
-          <div className="content" id="contentContainer">
-            <Route exact path="/" component={Home}/>
-            <Route path="/GuardianSearch" component={ArticleSearch}/>
-          </div>
-        </HashRouter>
+        <Fragment>
+          <Header/>
+          <HashRouter>
+            <NavBar/>
+            <section className="container-fluid" id="contentContainer">
 
-        <Footer/>
-      </div>
+              <div className="col"></div>
+              <div className="col">
+              <Route exact path="/" component={Home}/>
+
+              <Route path="/GuardianSearch" component={ArticleSearch}/>
+              <Route path="/PythonContent" component={PythonContent}/>
+              </div>
+              <div className="col"></div>
+            </section>
+          </HashRouter>
+
+          <Footer/>
+        </Fragment>
     )
   }
 }

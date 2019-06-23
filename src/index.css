@@ -1,81 +1,41 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+ #contentContainer {
+   margin-top: 30px;
+     position: relative;
+ }
+
+ footer {margin-bottom: 0;}
+
+
+ pre {
+     counter-reset:line;
+ }
+
+pre span {
+    display: block;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+span.lineOfCode::before {
+    width: 2.5em;
+    counter-increment: line;
+    content: counter(line);
+    display: inline-block;
+    border-right: 1px solid #ddd;
+    padding: 0 .5em;
+    margin-right: .5em;
+    color: #888;
+    align: right;
 }
 
-#main{
-  height:100vh;
+pre a {
+    display: block;
 }
 
-#main {
-  margin-bottom: 100px;
+.block1{
+    border: 1px solid #d39e00;
+    background-color: #ffeeba;
 }
 
-footer {
-  text-align: center;
-  position:fixed;
-  left:0;
-  bottom: 0;
-  height: 50px;
-  width:100%;
-  background-color: darkorange;
-}
-
-.headMenu {
-  list-style: none;
-  display: table;
-
-}
-
-.headMenu li {
-  display: table-cell;
-  width: 20%;
-  padding: 10px;
-  vertical-align: middle;
-  background-color: orangered;
-  border:1px white solid;
-  color:white;
-  font-weight:bold;
-  font-size: .9em;
-  text-align: center;
-}
-
-.headMenu li a{
-  display: block;
-  text-decoration: none;
-
-}
-
-.headMenu li a:visited {
-  color: white;
-  text-decoration: none;
-}
-
-header {
-  background-color: #333;
-  color: #fff;
-  padding: 10px;
-  text-align: center;
-}
-
-input {
-  margin-left:5px;
-}
-
-#searchbar .form-group {
-  display: inline-block;
-}
-
-#contentContainer {
-  width: 80%;
-  left: 10%;
+.block2 {
+    border: 1px solid #0056b3;
+    background-color: #b3d7ff;
 }

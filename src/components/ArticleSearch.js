@@ -1,8 +1,6 @@
-import React, {Fragment} from 'react';
-import Header from './Header';
+import React from 'react';
 import ArticleList from './ArticleList';
 import Input from "./UI/Input";
-import Spinner from "./UI/Spinner/Spinner";
 
 class ArticleSearch extends React.Component {
   constructor(props) {
@@ -64,11 +62,11 @@ class ArticleSearch extends React.Component {
   {
     return (
 
-      <div id='guardianArticleList'>
+      <section id='guardianArticleList'>
         <h2>Search the Guardian</h2>
         <p>Use this form to search all Guardian and Observer articles produced in 2019</p>
         <form onSubmit={this.handleSubmit}>
-          <Fragment id='searchbar'>
+
             <Input type={'text'}
                    title= {'Search for Articles: '}
                    name= {'search'}
@@ -79,10 +77,11 @@ class ArticleSearch extends React.Component {
             <Input type={'submit'}
                    value="Submit"
             />
-          </Fragment>
+
         </form>
+        <details>Information about form here</details>
         <ArticleList articles={this.state.articles}/>
-      </div>
+      </section>
 
     );
   }

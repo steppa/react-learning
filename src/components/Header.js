@@ -7,8 +7,9 @@ class Header extends React.Component {
 
     return (
       <header>
-      <h1>React Learning App</h1>
-    </header>)
-  }
+        <h1>React learning app!</h1>
+      </header>
+
+    ) }
 }
 export default Header;

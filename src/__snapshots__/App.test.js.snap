@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search bar it matches snapshot 1`] = `
+<div
+  id="guardianArticleList"
+>
+  <h2>
+    Search the Guardian
+  </h2>
+  <p>
+    Use this form to search all Guardian and Observer articles produced in 2019
+  </p>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      id="searchbar"
+    >
+      <div
+        className="form-group"
+      >
+        <label
+          className="form-label"
+          htmlFor="search"
+        >
+          Search for Articles: 
+        </label>
+        <input
+          className="form-input"
+          id="search"
+          name="search"
+          onChange={[Function]}
+          placeholder="Enter a search"
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        className="form-group"
+      >
+        <label
+          className="form-label"
+        />
+        <input
+          className="form-input"
+          type="submit"
+          value="Submit"
+        />
+      </div>
+    </div>
+  </form>
+  <article>
+    <ul />
+  </article>
+</div>
+`;
+
+exports[`renders correctly 1`] = `
+<div
+  id="guardianArticleList"
+>
+  <h2>
+    Search the Guardian
+  </h2>
+  <p>
+    Use this form to search all Guardian and Observer articles produced in 2019
+  </p>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      id="searchbar"
+    >
+      <div
+        className="form-group"
+      >
+        <label
+          className="form-label"
+          htmlFor="search"
+        >
+          Search for Articles: 
+        </label>
+        <input
+          className="form-input"
+          id="search"
+          name="search"
+          onChange={[Function]}
+          placeholder="Enter a search"
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        className="form-group"
+      >
+        <label
+          className="form-label"
+        />
+        <input
+          className="form-input"
+          type="submit"
+          value="Submit"
+        />
+      </div>
+    </div>
+  </form>
+  <article>
+    <ul />
+  </article>
+</div>
+`;
