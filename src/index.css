@@ -1,3 +1,38 @@
+/*
+#00aaff
+#fe4600
+#ffcc00
+*/
+
+/* Color Theme Swatches in Hex */
+.American-Spirit-1-hex { color: #9AD9C2; }
+.American-Spirit-2-hex { color: #F2DA5E; }
+.American-Spirit-3-hex { color: #F2CA99; }
+.American-Spirit-4-hex { color: #F29544; }
+.American-Spirit-5-hex { color: #F26835; }
+
+/* Color Theme Swatches in RGBA */
+.American-Spirit-1-rgba { color: rgba(153, 216, 193, 1); }
+.American-Spirit-2-rgba { color: rgba(242, 217, 94, 1); }
+.American-Spirit-3-rgba { color: rgba(242, 201, 152, 1); }
+.American-Spirit-4-rgba { color: rgba(242, 149, 67, 1); }
+.American-Spirit-5-rgba { color: rgba(242, 103, 53, 1); }
+
+/* Color Theme Swatches in Hex */
+.My-Color-Theme-1-hex { color: #B0FFE1; }
+.My-Color-Theme-2-hex { color: #A0E8B8; }
+.My-Color-Theme-3-hex { color: #BDFFC0; }
+.My-Color-Theme-4-hex { color: #B5E8A0; }
+.My-Color-Theme-5-hex { color: #E2FFB0; }
+
+/* Color Theme Swatches in Hex */
+.Peppermint-Cream-1-hex { color: #A5D8D9; }
+.Peppermint-Cream-2-hex { color: #B6E0D5; }
+.Peppermint-Cream-3-hex { color: #D8F0E9; }
+.Peppermint-Cream-4-hex { color: #EBFFF8; }
+.Peppermint-Cream-5-hex { color: #FFFFFF; }
+
+
  #contentContainer {
    margin-top: 30px;
      position: relative;
@@ -25,20 +60,24 @@
     align: right;
 }
 
- #CodingContent a {
+ #CodingContent a.blockLink {
     display: block;
+     color: #000;
+}
+#CodingContent a.blockLink:visited {
+    color:#000;
 }
 
- #CodingContent a.inner-link {
+#CodingContent a {
     display: inline;
 }
 
  #CodingContent .block1{
     border: 1px solid #d39e00;
-    background-color: #ffeeba
+    background-color: #A5D8D9
 }
 
  #CodingContent .block2 {
     border: 1px solid #0056b3;
-    background-color: #b3d7ff;
+    background-color: #B6E0D5;
 }

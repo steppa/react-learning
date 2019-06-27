@@ -16,7 +16,7 @@ class ArticleSearch extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSearchTextChange(e, props) {
+  handleSearchTextChange(e) {
 
     this.setState({searchText: e.target.value});
 
@@ -27,12 +27,6 @@ class ArticleSearch extends React.Component {
     e.preventDefault();
     this.callApi();
   }
-
-  componentDidMount(){
-    // this.callApi()
-  }
-
-
 
   callApi() {
     this.setState({isLoading: true});
@@ -45,7 +39,6 @@ class ArticleSearch extends React.Component {
             isLoaded: true,
             articles: result.response.results
           });
-
         },
         // Handle errors don't catch!
         (error) => {

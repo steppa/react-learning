@@ -9,7 +9,7 @@ class PythonContent extends React.Component {
           <article id="CodingContent" className="col-sm-12">
             <header>Example code for exercise</header>
             <pre>
-              <a className="block1" data-toggle="collapse" href="#blockOneText" role="button"
+              <a className="block1 blockLink shadow-sm bg-white rounded border-bottom-0" data-toggle="collapse" href="#blockOneText" role="button"
                  aria-expanded="false" aria-controls="blockOneText">
               <span className="lineOfCode">import turtle</span>
               </a>
@@ -18,7 +18,7 @@ class PythonContent extends React.Component {
                 <p>turtle is a drawing library. You write simple instructions to create line drawings.</p>
               </div>
 
-                <a className="block2" data-toggle="collapse" href="#blockTwoText" roles="button" aria-expanded="false"
+                <a className="block2 blockLink shadow-sm bg-white rounded" data-toggle="collapse" href="#blockTwoText" roles="button" aria-expanded="false"
                    aria-controls="blockTwoText">
                   <span className="lineOfCode"><var>t</var> = turtle</span>
                   <span className="lineOfCode">t.speed('fastest')</span>
@@ -60,6 +60,13 @@ class PythonContent extends React.Component {
           </article>
         </div>
 
+        <aside id="copyText">
+          <textarea readOnly>
+
+            import turtle;
+
+          </textarea>
+        </aside>
       </Fragment>
   )
   }
