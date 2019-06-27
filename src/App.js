@@ -7,6 +7,7 @@ import Header from "./components/Header"
 import NavBar from  "./components/NavBar";
 import {Route, HashRouter } from "react-router-dom";
 import PythonContent from "./components/PythonContent";
+import FullTodoList from './components/FullTodoList';
 
 class Main extends React.Component {
   render() {
@@ -16,13 +17,13 @@ class Main extends React.Component {
           <HashRouter>
             <NavBar/>
             <section className="container-fluid" id="contentContainer">
-
               <div className="col"></div>
               <div className="col">
               <Route exact path="/" component={Home}/>
 
               <Route path="/GuardianSearch" component={ArticleSearch}/>
               <Route path="/PythonContent" component={PythonContent}/>
+              <Route path="/Todo" component={FullTodoList}/>
               </div>
               <div className="col"></div>
             </section>

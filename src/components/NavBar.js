@@ -16,6 +16,7 @@ class NavBar extends React.Component {
           <li className="nav-item"><NavLink className="nav-link" to="/">Home</NavLink></li>
           <li className="nav-item"><NavLink className="nav-link" to="GuardianSearch">Search</NavLink></li>
           <li className="nav-item"><NavLink className="nav-link" to="PythonContent">Python</NavLink></li>
+          <li className="nav-item"><NavLink className="nav-link" to="Todo">Todo List (redux)</NavLink></li>
         </ul>
       </div>
     </nav>
