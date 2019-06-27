@@ -18,11 +18,15 @@ const AddTodo = ({dispatch}) => {
           input.value = ''
         }}
       >
-        <div className='form-group'>
-          <label for='todoInput'>Todo: </label>
+
+          <div className="input-group mb-3">
+            <div className="input-group-prepend">
+              <span className="input-group-text">To Do: </span>
+            </div>
           <input type="text" id='todoInput' className="form-control" ref={node => (input = node)}/>
+
           <button className="btn btn-primary" type="submit">Add Todo</button>
-        </div>
+          </div>
       </form>
     </div>
   )

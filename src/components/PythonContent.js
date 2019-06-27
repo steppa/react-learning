@@ -15,7 +15,7 @@ class PythonContent extends React.Component {
               </a>
               <div id="blockOneText" className="collapse border-info ">
                 <p><a className="inner-link" href="http://www.codeitmakeit.co.uk/dictionary/#import">Import</a> has to be at the top of your code or it won't work properly.  </p>
-                <p>turtle is a drawing library. You write simple instructions to create line drawings.</p>
+                <p><var>turtle</var> is a drawing library. You write simple instructions to create line drawings.</p>
               </div>
 
                 <a className="block2 blockLink shadow-sm bg-white rounded" data-toggle="collapse" href="#blockTwoText" roles="button" aria-expanded="false"

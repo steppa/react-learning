@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 const Link = ({active, children, onClick}) =>(
   <button
+    className="btn btn-outline-primary"
     onClick={onClick}
     disabled={active}
     style={{marginLeft: '4px'

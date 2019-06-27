@@ -1,6 +1,7 @@
 import React from 'react';
 import ArticleList from './ArticleList';
-import Input from "./UI/Input";
+import TextInput from "./UI/TextInput";
+import BtnInput from "./UI/Btninput";
 
 class ArticleSearch extends React.Component {
   constructor(props) {
@@ -60,19 +61,19 @@ class ArticleSearch extends React.Component {
         <p>Use this form to search all Guardian and Observer articles produced in 2019</p>
         <form onSubmit={this.handleSubmit}>
 
-            <Input type={'text'}
-                   title= {'Search for Articles: '}
-                   name= {'search'}
-                   value={this.state.searchText}
-                   placeholder = {'Enter a search'}
-                   handleChange = {this.handleSearchTextChange}
+            <TextInput type={'text'}
+                       title= {'Search for Articles: '}
+                       name= {'search'}
+                       value={this.state.searchText}
+                       placeholder = {'Enter a search'}
+                       handleChange = {this.handleSearchTextChange}
             />
-            <Input type={'submit'}
-                   value="Submit"
-            />
+            <BtnInput type={'submit'}
+                      value="Submit"
+                      btnClass = {'btn btn-primary'}
 
+            />
         </form>
-        <details>Information about form here</details>
         <ArticleList articles={this.state.articles}/>
       </section>
 
