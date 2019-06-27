@@ -7,7 +7,7 @@ import Header from "./components/Header"
 import NavBar from  "./components/NavBar";
 import {Route, HashRouter } from "react-router-dom";
 import PythonContent from "./components/PythonContent";
-import FullTodoList from './components/FullTodoList';
+import FullTodoList from './components/TodoList/FullTodoList';
 
 class Main extends React.Component {
   render() {

@@ -1,11 +1,11 @@
 import React from 'react'
-import AddTodo from '../containers/AddTodo'
-import VisibleTodoList from '../containers/VisibleTodoList'
+import AddTodo from '../../containers/AddTodo'
+import VisibleTodoList from '../../containers/VisibleTodoList'
 import ListFooter from "./ListFooter";
 
 const FullTodoList = () => (
   <div>
-    <AddTodo />
+    <section className="col-md-6"><AddTodo /></section>
     <VisibleTodoList />
     <ListFooter />
   </div>

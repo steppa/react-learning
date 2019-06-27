@@ -1,13 +1,14 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { addTodo } from '../actions';
+import {connect} from 'react-redux';
+import {addTodo} from '../actions';
 
-const AddTodo = ({ dispatch }) => {
+const AddTodo = ({dispatch}) => {
   let input
 
-  return(
+  return (
     <div>
       <form
+        className="form-inline"
         onSubmit={e => {
           e.preventDefault()
           if (!input.value.trim()) {
@@ -17,8 +18,11 @@ const AddTodo = ({ dispatch }) => {
           input.value = ''
         }}
       >
-        <input ref={node => (input = node)}/>
-        <button type="submit">Add Todo</button>
+        <div className='form-group'>
+          <label for='todoInput'>Todo: </label>
+          <input type="text" id='todoInput' className="form-control" ref={node => (input = node)}/>
+          <button className="btn btn-primary" type="submit">Add Todo</button>
+        </div>
       </form>
     </div>
   )
