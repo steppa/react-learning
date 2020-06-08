@@ -32,7 +32,7 @@ class ArticleSearch extends React.Component {
   callApi() {
     this.setState({isLoading: true});
     //TODO: @shousden Change to Axios as that appears to be popular and more simple.
-    fetch("https://content.guardianapis.com/search?q="+this.state.searchText+"&from-date=2019-01-01&api-key=bf18382d-5a0b-44cc-9713-4dd5a9d082b4")
+    fetch("https://content.guardianapis.com/search?q="+this.state.searchText+"&from-date=2020-01-01&api-key=bf18382d-5a0b-44cc-9713-4dd5a9d082b4")
       .then(res => res.json())
       .then(
         (result) => {
